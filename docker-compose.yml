@@ -63,7 +63,7 @@ services:
       - "5001:5001"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dify-api.rule=Host(`dify.meusite.com`) && PathPrefix(`/console`)" # Troque pelo seu dominio ou subdominio
+      - "traefik.http.routers.dify-api.rule=Host(https://dify.helashop.online/`) && PathPrefix(`/console`)" # Troque pelo seu dominio ou subdominio
       - "traefik.http.routers.dify-api.tls.certresolver=leresolver"
       - "traefik.http.routers.dify-api.entrypoints=web,websecure"
       - "traefik.http.routers.dify-api.tls=true"
@@ -119,14 +119,14 @@ services:
     environment:
       EDITION: SELF_HOSTED
       CONSOLE_API_URL: ''
-      APP_API_URL: 'https://dify.helashop.online/' # Troque pelo seu dominio ou subdominio
+      APP_API_URL: 'https://dify.meusite.com' # Troque pelo seu dominio ou subdominio
       SENTRY_DSN: ''
     ports:
       - "3000:3000"
     labels:
       - "traefik.enable=true"
       # SSL
-      - "traefik.http.routers.dify.rule=Host(`dify.meusite.com`)" # Troque pelo seu dominio ou subdominio
+      - "traefik.http.routers.dify.rule=Host(https://dify.helashop.online/`)" # Troque pelo seu dominio ou subdominio
       - "traefik.http.routers.dify.tls.certresolver=leresolver"
       - "traefik.http.routers.dify.entrypoints=web,websecure"
       - "traefik.http.routers.dify.tls=true"
