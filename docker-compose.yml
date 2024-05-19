@@ -48,7 +48,7 @@ services:
       MILVUS_PASSWORD: Milvus
       MILVUS_SECURE: 'false'
       MAIL_TYPE: ''
-      MAIL_DEFAULT_SEND_FROM: 'YOUR EMAIL FROM (eg: no-reply <no-reply@dify.ai>)'
+      MAIL_DEFAULT_SEND_FROM: 'ebtalles@gmail.com'
       RESEND_API_KEY: ''
       RESEND_API_URL: https://api.resend.com
       SENTRY_DSN: ''
@@ -59,8 +59,8 @@ services:
       - redis
     volumes:
       - ./volumes/app/storage:/app/api/storage
-    # ports:
-    #   - "5001:5001"
+    ports:
+      - "5001:5001"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.dify-api.rule=Host(`dify.meusite.com`) && PathPrefix(`/console`)" # Troque pelo seu dominio ou subdominio
@@ -119,10 +119,10 @@ services:
     environment:
       EDITION: SELF_HOSTED
       CONSOLE_API_URL: ''
-      APP_API_URL: 'https://dify.meusite.com' # Troque pelo seu dominio ou subdominio
+      APP_API_URL: 'https://dify.helashop.online/' # Troque pelo seu dominio ou subdominio
       SENTRY_DSN: ''
-    # ports:
-    #   - "3000:3000"
+    ports:
+      - "3000:3000"
     labels:
       - "traefik.enable=true"
       # SSL
@@ -180,8 +180,8 @@ services:
       AUTHENTICATION_APIKEY_USERS: 'hello@dify.ai'
       AUTHORIZATION_ADMINLIST_ENABLED: 'true'
       AUTHORIZATION_ADMINLIST_USERS: 'hello@dify.ai'
-    # ports:
-    #  - "8080:8080"
+    ports:
+     - "8080:8080"
 
 networks:
   default:
